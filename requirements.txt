@@ -1,0 +1,8 @@
+discord.py 
+openai 
+google-generativeai 
+langchain 
+faiss-cpu 
+python-dotenv 
+youtube_dl 
+requests
