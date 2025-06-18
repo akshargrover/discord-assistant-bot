@@ -1,6 +1,7 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import RetrievalQA
 from .vectorstore import get_vectorstore
+import os
 
 def get_qa_chain():
     retriever = get_vectorstore().as_retriever()
