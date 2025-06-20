@@ -6,7 +6,7 @@ import os
 def get_qa_chain():
     """Returns a RetrievalQA chain using Gemini Flash and FAISS"""
     # Load your documents and create vectorstore
-    vectorstore = get_vectorstore("data/faiss_docs/")  # change to your actual document folder
+    vectorstore = get_vectorstore("data/faiss_docs")  
 
     # Use Gemini 2.0 Flash
     llm = ChatGoogleGenerativeAI(
@@ -19,7 +19,7 @@ def get_qa_chain():
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
         retriever=vectorstore.as_retriever(search_kwargs={"k": 5}),
-        return_source_documents=False  # Set to True to show source chunks
+        return_source_documents=True  # Set to True to show source chunks
     )
 
     return qa_chain

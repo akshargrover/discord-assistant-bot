@@ -12,8 +12,7 @@ class Summarizer(commands.Cog):
     @app_commands.command(name="summarize", description="Summarize given text")
     async def summarize(self, interaction: discord.Interaction, text: str):
         await interaction.response.defer()
-        prompt = f"Summarize this:
-{text}"
+        prompt = f"Summarize this:{text}"
         result = self.llm.invoke(prompt)
         await interaction.followup.send(result[:2000])
 
